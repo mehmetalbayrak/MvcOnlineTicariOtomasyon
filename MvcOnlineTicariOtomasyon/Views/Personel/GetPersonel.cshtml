@@ -1,0 +1,27 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Personel
+@{
+    ViewBag.Title = "GetPersonel";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Personel Güncelle</h2>
+<br />
+@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.LabelFor(x => x.PersonelName)
+    @Html.TextBoxFor(x => x.PersonelName, new { @class = "form-control" })
+    @Html.LabelFor(x => x.PersonelSurname)
+    @Html.TextBoxFor(x => x.PersonelSurname, new { @class = "form-control" })
+    @Html.LabelFor(x => x.PersonelImage)
+    <br />
+    <input type="file" name="PersonelImage" />
+    <br />
+    @*@Html.TextBoxFor(x => x.PersonelImage, new { @class = "form-control" })*@
+    @Html.LabelFor(x => x.Departmen)
+    @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.prs, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.PersonelId)
+</div>
+    <button class="btn btn-info">Kaydet</button>
+}
+

@@ -1,0 +1,30 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Bill
+@{
+    ViewBag.Title = "GetBill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>GetBill</h2>
+<br />
+@using (Html.BeginForm("UpdateBill", "Bill", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.BillSerialNo)
+        @Html.TextBoxFor(x => x.BillSerialNo, new { @class = "form-control" })
+        @Html.LabelFor(x => x.BillQueueNo)
+        @Html.TextBoxFor(x => x.BillQueueNo, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Tax)
+        @Html.TextBoxFor(x => x.Tax, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Date)
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Time)
+        @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Delivery)
+        @Html.TextBoxFor(x => x.Delivery, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Receiver)
+        @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.BillId)
+    </div>
+    <button class="btn btn-info">Kaydet</button>
+}
+

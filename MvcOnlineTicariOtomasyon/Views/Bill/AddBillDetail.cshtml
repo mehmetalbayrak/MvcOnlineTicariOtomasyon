@@ -1,0 +1,24 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.BillDetail
+@{
+    ViewBag.Title = "AddBillDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AddBillDetail</h2>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.BillContext)
+    @Html.TextBoxFor(x => x.BillContext, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+    @Html.LabelFor(x => x.UnitPrice)
+    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    @Html.LabelFor(x => x.BillId)
+    @Html.TextBoxFor(x => x.BillId, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
+
+

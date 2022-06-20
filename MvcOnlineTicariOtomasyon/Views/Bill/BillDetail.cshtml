@@ -1,0 +1,42 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<BillDetail>
+@{
+    ViewBag.Title = "BillDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>BillDetail</h2>
+<table class="table table-active table-hover">
+    <tr>
+        <th>ID</th>
+        <th>AÇIKLAMA</th>
+        <th>MİKTAR</th>
+        <th>BİRİM FİYAT</th>
+        <th>TUTAR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>
+                @x.BillId
+            </td>
+            <td>
+                @x.BillContext
+            </td>
+            <td>
+                @x.Amount
+            </td>
+            <td>
+                @x.UnitPrice
+            </td>
+            <td>
+                @x.Price
+            </td>
+            <td>
+                <a href="/Bill/AddBillDetail/@x.BillId" class="btn btn-default" style="background-color:darkslateblue; color:aliceblue">Yeni Kalem Girişi</a>
+            </td>
+        </tr>
+    }
+
+</table>
+

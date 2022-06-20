@@ -1,0 +1,58 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SaleSituation>
+@{
+    ViewBag.Title = "DepartmanPersonelSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Personel Satış Bilgileri</h2>
+<br />
+<ol class="breadcrumb" mb-4>
+    <li class="breadcrumb-item active">@ViewBag.dpers Satış Bilgileri</li>
+</ol>
+<table class=" table table-bordered">
+    <tr>
+        <th>ÜRÜN</th>
+        <th>CARİ</th>
+        <th>FİYAT</th>
+        <th>ADET</th>
+        <th>TOPLAM</th>
+        <th>TARİH</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @ViewBag.apro
+            </td>
+            <td>
+                @ViewBag.acur
+            </td>
+            <td>
+                @item.Price ₺
+            </td>
+            <td>
+                @item.Piece
+            </td>
+            <td>
+                @item.TotalPrice ₺
+            </td>
+            <td>
+                @item.Date
+            </td>
+            <td><a href="#" class="btn btn-default" style="background-color:blue; color:aliceblue">Yazdır</a></td>
+            @*<td>
+                    <a href="/Departman/GetDepartman/@item.DepartmanId" class="btn btn-success">Güncelle</a>
+                </td>
+                <td>
+                    <a href="/Departman/DeleteDepartman/@item.DepartmanId" class="btn btn-danger">Sil</a>
+                </td>
+                <td>
+                    <a href="/Departman/DepartmanDetail/@item.DepartmanId" class="btn btn-secondary">Detaylar</a>
+                </td>*@
+        </tr>
+    }
+
+</table>
+

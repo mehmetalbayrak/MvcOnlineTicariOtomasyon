@@ -1,0 +1,42 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.SaleSituation
+@{
+    ViewBag.Title = "SellProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>SellProduct</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.ProductId)
+    <input type="text" name="ProductId" value="@ViewBag.dgr2" class="form-control" readonly />
+
+    @Html.LabelFor(x => x.PersonelId)
+    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.CurrentId)
+    @Html.TextBoxFor(x => x.CurrentId, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.Piece)
+    <input type="number" name="Piece" max="25" min="1" onchange="sum();" id="txt1" class="form-control" />
+
+    @Html.LabelFor(x => x.Price)
+    <input type="text" name="Price" value="@ViewBag.dgr3" onkeyup="sum();" id="txt2" class="form-control" />
+
+    @Html.LabelFor(x => x.TotalPrice)
+    <input type="number" name="TotalPrice" max="25" min="1" onkeyup="sum();" id="txt3" class="form-control" readonly />
+
+    <button class="btn btn-info">Satış Yap</button>
+
+</form>
+
+<script>
+    function sum() {
+        var number1 = document.getElementById('txt1').value;
+        var number2 = document.getElementById('txt2').value;
+        var result = parseInt(number1) * parseInt(number2);
+        if (!isNaN(result)) {
+            document.getElementById('txt3').value = result;
+        }
+    }
+</script>
+

@@ -1,0 +1,102 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Bill>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<table class=" table table-bordered">
+    <tr>
+        <th>SERİ SIRA NO</th>
+        <th>VERGİ DAİRESİ</th>
+        <th>TARİH</th>
+        <th>SAAT</th>
+        <th>TESLİM EDEN</th>
+        <th>TESLİM ALAN</th>
+        <th>TOPLAM</th>
+        <th>GÜNCELLE</th>
+        <th>SİL</th>
+        <th>DETAYLAR</th>
+        <th>LİSTE DETAYLAR</th>
+        <th>YENİ KALEM</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.BillSerialNo @item.BillQueueNo
+            </td>
+            <td>
+                @item.Tax
+            </td>
+            <td>
+                @item.Date
+
+            </td>
+            <td>
+                @item.Time
+            </td>
+            <td>
+                @item.Delivery
+            </td>
+            <td>
+                @item.Receiver
+            </td>
+            <td>
+                @item.TotalPrice ₺
+            </td>
+            <td>
+                <a href="/Bill/GetBill/@item.BillId" class="btn btn-success">Güncelle</a>
+            </td>
+            <td>
+                <a href="/Bill/DeleteBill/@item.BillId" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Bill/BillDetail/@item.BillId" class="btn btn-secondary">Detaylar</a>
+            </td>
+            <td>
+                <a href="/Bill/BillDetail/@item.BillId" class="btn btn-secondary" style="background-color: navy; color:aliceblue;">Liste</a>
+            </td>
+            <td>
+                <a href="/Bill/BillDetail/@item.BillId" class="btn btn-secondary" style="background-color:blueviolet; color:aliceblue;">Kalem</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="/Bill/AddBill/" class="btn btn-primary">Fatura Ekle</a>
+<br />
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Liste</button>
+@*Açılabilir pop-up ekranı*@
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Kalemler Listesi</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BillSerialNo</td>
+                            <td>@item.BillQueueNo</td>
+                            <td>@item.TotalPrice</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Tamam</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div> @*pop-up bitiş*@
+
+

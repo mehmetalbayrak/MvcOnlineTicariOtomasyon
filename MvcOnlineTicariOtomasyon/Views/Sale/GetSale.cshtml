@@ -1,0 +1,31 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.SaleSituation
+@{
+    ViewBag.Title = "GetSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Satış Güncelle</h2>
+<br />
+@using (Html.BeginForm("UpdateSale", "Sale", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Ürün")
+        @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        @Html.Label("Cari")
+        @Html.DropDownListFor(x => x.CurrentId, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        @Html.Label("Personel")
+        @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Piece)
+        @Html.TextBoxFor(x => x.Piece, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Price)
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        @Html.LabelFor(x => x.TotalPrice)
+        @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Date)
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+
+        @Html.HiddenFor(x => x.SaleId)
+    </div>
+    <button class="btn btn-info">Kaydet</button>
+}
+

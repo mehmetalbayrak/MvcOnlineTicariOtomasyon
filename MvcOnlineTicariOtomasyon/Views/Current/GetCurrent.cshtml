@@ -1,0 +1,28 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Current
+@{
+    ViewBag.Title = "GetCurrent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>GetCurrent</h2>
+<br />
+@using (Html.BeginForm("UpdateCurrent", "Current", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.CurrentName)
+        @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CurrentName, "", new { @style = "color:red" })
+        
+        @Html.LabelFor(x => x.CurrentSurname)
+        @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CurrentSurname, "", new { @style = "color:red" })
+       
+        @Html.LabelFor(x => x.CurrentProvince)
+        @Html.TextBoxFor(x => x.CurrentProvince, new { @class = "form-control" })
+        @Html.LabelFor(x => x.CurrentMail)
+        @Html.TextBoxFor(x => x.CurrentMail, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.CurrentId)
+    </div>
+}
+<button class="btn btn-info">Kaydet</button>
+

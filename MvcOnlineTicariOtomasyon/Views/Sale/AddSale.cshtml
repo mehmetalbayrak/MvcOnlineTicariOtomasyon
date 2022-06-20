@@ -1,0 +1,25 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.SaleSituation
+@{
+    ViewBag.Title = "AddSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Satış Ekle</h2>
+<form class="form-group" method="post">
+    @Html.Label("Ürün")
+    @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    @Html.Label("Cari")
+    @Html.DropDownListFor(x => x.CurrentId, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    @Html.Label("Personel")
+    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    @Html.Label("Adet")
+    @Html.TextBoxFor(x => x.Piece, new { @class = "form-control" })
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    @Html.Label("Toplam Tutar")
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Satış Yap</button>
+
+</form>
+

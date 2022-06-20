@@ -1,0 +1,20 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Current
+@{
+    ViewBag.Title = "AddCurrent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Cari Ekle</h2>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.CurrentName)
+    @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+    @Html.LabelFor(x => x.CurrentSurname)
+    @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+    @Html.LabelFor(x => x.CurrentProvince)
+    @Html.TextBoxFor(x => x.CurrentProvince, new { @class = "form-control" })
+    @Html.LabelFor(x => x.CurrentMail)
+    @Html.TextBoxFor(x => x.CurrentMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>

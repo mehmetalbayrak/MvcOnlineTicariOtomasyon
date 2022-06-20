@@ -1,0 +1,98 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Current
+    @using (Html.BeginForm("UpdateCurrent", "CurrentPanel", FormMethod.Post))
+    {
+<form class="form-horizontal">
+
+    <div class="form-group row">
+
+        <label for="CurrentName" class="col-sm-2 col-form-label">Adı</label>
+
+        <div class="col-sm-10">
+
+            @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="CurrentSurname" class="col-sm-2 col-form-label">Soyadı</label>
+
+        <div class="col-sm-10">
+
+            @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="CurrentMail" class="col-sm-2 col-form-label">Mail Adresi</label>
+
+        <div class="col-sm-10">
+
+            @Html.TextBoxFor(x => x.CurrentMail, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="CurrentProvince" class="col-sm-2 col-form-label">Şehir</label>
+
+        <div class="col-sm-10">
+
+
+            @Html.TextBoxFor(x => x.CurrentProvince, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="CurrentPassword" class="col-sm-2 col-form-label">Şifre</label>
+
+        <div class="col-sm-10">
+
+            @Html.TextBoxFor(x => x.CurrentPassword, new { @class = "form-control", type ="password" })
+
+            @*<input  type="password" for="CurrentPassword" name="CurrentPasword" class="form-control" />*@
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <div class="offset-sm-2 col-sm-10">
+
+            <div class="checkbox">
+
+                <label>
+
+                    <input type="checkbox"> Bilgilerimi teyit ettim ve <a href="#">değiştirilmesine izin veriyorum.</a>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <div class="offset-sm-2 col-sm-10">
+
+            <button type="submit" class="btn btn-danger">Güncelle</button>
+
+        </div>
+
+    </div>
+    @Html.HiddenFor(x=>x.CurrentId)
+</form>
+    }
